@@ -336,25 +336,44 @@ canvas{
 
     </div>
 
-    <button class="btn" onclick="playMusic()">
-        TOCAR FREQUÊNCIA
+    <!-- BOTÃO -->
+
+    <button class="btn" id="musicBtn">
+        💜 TOCAR MÚSICA 💜
     </button>
 
 </div>
 
+<!-- MÚSICA -->
+
 <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8e4b4f0.mp3?filename=beautiful-piano-ambient-110624.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
 /* MUSICA */
 
-function playMusic(){
+const music = document.getElementById("music");
+const btn = document.getElementById("musicBtn");
 
-    document.getElementById("music").play();
+btn.onclick = async () => {
 
-}
+    try{
+
+        music.volume = 1;
+
+        await music.play();
+
+        btn.innerHTML = "💜 MÚSICA TOCANDO 💜";
+
+    }catch(e){
+
+        alert("Clique novamente para tocar.");
+
+    }
+
+};
 
 /* PARTICULAS */
 
